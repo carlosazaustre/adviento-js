@@ -1,95 +1,67 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import logo from '@/app/assets/logo.png'
+import Banner from '@/app/components/Banner'
+import Navbar from '@/app/components/Navbar'
+import Creator from '@/app/components/Creator'
 import styles from './page.module.css'
 
-export default function Home() {
+type VideoItem = {
+  snippet: {
+    resourceId: {
+      videoId: string;
+    }
+  }
+}
+
+export default async function Home() {
+  const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+  const PLAYLIST_ID = process.env.PLAYLIST_ID;
+  const GOOGLE_API_URL = "https://www.googleapis.com/youtube/v3"
+
+  const data = await fetch(`${GOOGLE_API_URL}/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&key=${YOUTUBE_API_KEY}`)
+  const videos = await data.json();
+  const videosId = videos.items.map((item: VideoItem) => item.snippet.resourceId.videoId);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <>
+      <Banner />
+      <Navbar />
 
-      <div className={styles.center}>
+      <header className={styles.logo}>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          className={styles.logoImage}
+          width="120"
+          src={logo}
+          alt="Logo de Adviento de JavaScript" />
+        <section>
+          <h1 className={styles.logoTitle}>Adviento de <span>JavaScript</span></h1>
+          <p className={styles.copy}>Aprende un tip de JavaScript cada día, durante 24 días, hasta Navidad</p>
+        </section>
+      </header>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <main className={styles.container}>
+        {videosId.map((videoId: string, index: number) => (
+          <div key={videoId} className={styles.cell}>
+              <iframe
+                className={styles.video}
+                src={`https://www.youtube.com/embed/${videoId}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                ></iframe>
+          </div>
+        ))}
+        {Array.from({ length: 24 - videosId.length }, (_, i) => i + 1).map((day: number, index: number) => (
+          <div key={index + videosId.length + 1} className={styles.cell}>
+            <span className={styles.cellText}>{index + videosId.length + 1}</span>
+          </div>
+        ))}
+      </main>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+     <Creator />
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <footer className={styles.footer}>
+        <p>💻 con 💛 por Carlos Azaustre &copy; 2023</p>
+      </footer>
+    </>
   )
 }

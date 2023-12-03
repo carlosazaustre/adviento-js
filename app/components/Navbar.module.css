@@ -1,0 +1,18 @@
+.navbarContainer {
+    background-color: var(--black-color);
+}
+
+.navbar {
+    max-width: 1200px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding: 1em;
+}
+
+@media (width > 1024px ) {
+    .navbar {
+        margin: 0 auto;
+    }
+}

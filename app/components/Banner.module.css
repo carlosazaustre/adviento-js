@@ -1,0 +1,51 @@
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black-color);
+    height: 70px;
+    background-color: var(--primary-color);
+}
+
+.banner p {
+    padding: 0 1em;
+    text-align: center;
+}
+
+.bannerImg {
+    width: 64px;
+    height: auto;
+    overflow: hidden;
+    box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.75);
+}
+
+.label {
+    background-color: #b39004;
+    color: white;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.3em 0.5em;
+    margin: 0 0.4em;
+    border-radius: 10px;
+}
+
+@media (768px < width <= 1024px ) {
+    .banner {
+        position: fixed;
+        border-radius: 10px;
+        bottom: 65px;
+        right: 20px;
+        width: 400px;
+      }
+}
+
+@media (width > 1024px ) {
+    .banner {
+        position: fixed;
+        border-radius: 10px;
+        bottom: 65px;
+        right: 30px;
+        width: 500px;
+      }
+}
