@@ -2,6 +2,7 @@ import Image from 'next/image';
 import logo from '@/app/assets/logo.png'
 import Banner from '@/app/components/Banner'
 import Navbar from '@/app/components/Navbar'
+import Sponsors from './components/Sponsors';
 import Creator from '@/app/components/Creator'
 import styles from './page.module.css'
 
@@ -39,6 +40,8 @@ export default async function Home() {
           <p className={styles.copy}>Aprende un tip de JavaScript cada día, durante 24 días, hasta Navidad</p>
         </section>
       </header>
+
+      <Sponsors />
 
       <main className={styles.container}>
         {videosId.map((videoId: string, index: number) => (
