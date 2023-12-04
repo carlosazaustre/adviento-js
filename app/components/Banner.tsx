@@ -8,9 +8,10 @@ export default function Banner() {
             <aside className={styles.banner}>
             <Image className={styles.bannerImg} width={75} src={bookImg} alt="Libro Aprendiendo JavaScript"/>
             <p>
-                <strong>Aprende JavaScript, Hoy</strong>
+                Mi libro
+                <strong> Aprende JavaScript</strong>
                 <br />
-                Consigue Aprendiendo JavaScript en Amazon
+                ya a la venta en Amazon 🚀
                 <span className={styles.label}>Comprar</span>
             </p>
             </aside>
