@@ -38,6 +38,10 @@
         right: 20px;
         width: 400px;
       }
+    .banner:hover {
+        transform: scale(1.15);
+        transition: transform 0.5s ease;
+    }
 }
 
 @media (width > 1024px ) {
@@ -48,4 +52,8 @@
         right: 30px;
         width: 500px;
       }
+      .banner:hover {
+        transform: scale(1.15);
+        transition: transform 0.5s ease;
+    }
 }
