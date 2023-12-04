@@ -24,3 +24,9 @@
     height: 100px;
     overflow: hidden;
 }
+
+@media (width > 768px) {
+    .creatorCopy {
+        font-size: 1.5em;
+    }
+}

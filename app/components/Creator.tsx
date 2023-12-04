@@ -14,7 +14,7 @@ export default function Creator() {
             <p>Soy <strong>Carlos Azaustre. </strong>
             Ingeniero de Software, Educador y Divulgador de contenido
             sobre Programación y JavaScript en redes sociales,
-            desde hace más de 10 años. Reconocico como
+            desde hace más de 10 años. Reconocido como
             Google Developer Expert y Microsoft MVP</p>
             <div className={styles.creatorLogos}>
                 <Image height="30" src={gdeImg} alt="Google Developer Expert en Web" />
