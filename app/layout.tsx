@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     title: 'Adviento JS',
     card: 'summary_large_image',
   },
+  themeColor: '#ffcc00',
 }
 
 export default function RootLayout({
