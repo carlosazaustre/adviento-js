@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import logoGaraje from '@/app/assets/sponsor-garajedeideas.jpeg'
+import logoGaraje from '@/app/assets/sponsor-garajedeideas.png'
 import logoDonDominio from '@/app/assets/sponsor-dondominio.png'
 import styles from './Sponsors.module.css'
 

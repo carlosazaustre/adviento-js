@@ -30,8 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     title: 'Adviento JS',
     card: 'summary_large_image',
-  },
-  themeColor: '#ffcc00',
+  }
 }
 
 export default function RootLayout({
