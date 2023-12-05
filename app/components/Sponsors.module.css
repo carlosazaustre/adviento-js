@@ -4,18 +4,27 @@
     text-align: center;
     padding: 2em;
     padding-bottom: 1em;
+    margin: 0 auto;
 }
 
 .logos {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8em;
+    gap: 1em;
     padding: 1em 0;
 }
 
 .image:hover {
     transform: scale(1.25) rotate(2deg);
     transition: transform 0.5s ease;
+}
+
+@media (width > 500px) {
+    .logos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5em;
+    }
 }
