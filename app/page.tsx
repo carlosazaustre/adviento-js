@@ -18,8 +18,9 @@ export default async function Home() {
   const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
   const PLAYLIST_ID = process.env.PLAYLIST_ID;
   const GOOGLE_API_URL = "https://www.googleapis.com/youtube/v3"
-  const ENDPOINT_URL = `${GOOGLE_API_URL}/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&key=${YOUTUBE_API_KEY}`
+  const ENDPOINT_URL = `${GOOGLE_API_URL}/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&key=${YOUTUBE_API_KEY}&maxResults=24`
 
+  console.log(ENDPOINT_URL)
   const data = await fetch(ENDPOINT_URL)
   const videos = await data.json();
   const videosId = videos.items.map((item: VideoItem) => item.snippet.resourceId.videoId);
