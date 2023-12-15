@@ -8,11 +8,26 @@
   margin: 0 auto;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: var(--container-width);
+}
+
 .logo section:nth-child(1) {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.logoImage {
+  width: 200px;
+  height: auto;
+  padding: 1em;
+  margin: 0 auto;
 }
 
 .logoTitle {
@@ -69,6 +84,10 @@
 }
 
 @media (768px < width <= 1024px ) {
+  .wrapper {
+    flex-direction: row;
+    text-align: center;
+  }
   .logo section:nth-child(1) {
     flex-direction: row;
   }
@@ -76,8 +95,6 @@
     flex-direction: row;
   }
   .logoImage {
-    width: 250px;
-    height: auto;
     padding: 1em;
   }
   .logoTitle {
@@ -94,6 +111,10 @@
 }
 
 @media (width > 1024px ) {
+  .wrapper {
+    flex-direction: row;
+    text-align: center;
+  }
   .logo section:nth-child(1) {
     flex-direction: row;
   }
@@ -101,8 +122,6 @@
     flex-direction: row;
   }
   .logoImage {
-    width: 250px;
-    height: auto;
     padding: 1em;
   }
   .logoTitle {

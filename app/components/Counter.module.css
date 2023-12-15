@@ -1,0 +1,29 @@
+.counter {
+    display: flex;
+    justify-content: center;
+    background-color: var(--black-color);
+    padding-bottom: 2em;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #eaeaea;
+    color: #333;
+    padding: 1.5em;
+    margin: .5em;
+    border-radius: 1em;
+    min-width: 50px;
+}
+
+.number {
+    font-size: 1.75em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.time {
+    font-size: .75em;
+    text-align: center;
+}

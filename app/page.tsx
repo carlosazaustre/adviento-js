@@ -5,6 +5,7 @@ import Navbar from '@/app/components/Navbar'
 import Sponsors from './components/Sponsors';
 import Creator from '@/app/components/Creator'
 import Cell from '@/app/components/Cell'
+import Counter from '@/app/components/Counter'
 import styles from './page.module.css'
 
 type VideoItem = {
@@ -32,16 +33,23 @@ export default async function Home() {
       <Navbar />
 
       <header className={styles.logo}>
-        <Image
-          className={styles.logoImage}
-          width="120"
-          src={logo}
-          alt="Logo de Adviento de JavaScript" />
-        <section>
-          <h1 className={styles.logoTitle}>Adviento de <span>JavaScript</span></h1>
-          <p className={styles.copy}>Aprende un tip de JavaScript cada día, durante 24 días, hasta Navidad</p>
-        </section>
+        <div className={styles.wrapper}>
+          <Image
+            className={styles.logoImage}
+            width="120"
+            src={logo}
+            alt="Logo de Adviento de JavaScript" />
+          <section>
+            <h1 className={styles.logoTitle}>Adviento de <span>JavaScript</span></h1>
+            <p className={styles.copy}>
+              Aprende un tip de JavaScript cada día, durante 24 días, hasta Navidad.
+              <br/><br/>Próximo video en:
+            </p>
+          </section>
+        </div>
       </header>
+
+      <Counter />
 
       <Sponsors />
 
