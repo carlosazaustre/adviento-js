@@ -6,7 +6,15 @@
     border-style: solid;
     border-width: 5px;
     border-image: var(--gradient-color);
-  }
+    background: var(--cell-empty-gradient-color);
+}
+
+.cell:hover {
+    transform: scale(1.25) rotate(2deg);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
 
 .cellText {
     font-weight: bolder;
@@ -19,4 +27,14 @@
     height: 100%;
     border: none;
     border-radius: 5px;
+}
+
+@media (width > 500px) {
+    .cell {
+        height: 300px;
+    }
+
+    .cellText {
+        font-size: 5em;
+    }
 }
