@@ -42,6 +42,7 @@
 
 .container {
   display: grid;
+  max-width: 1200px;
   grid-template-columns: 1fr;
   gap: 10px;
   padding: 20px;
