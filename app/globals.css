@@ -3,6 +3,7 @@
   --background-color: #222;
   --black-color: #111;
   --gradient-color: linear-gradient(45deg, rgb(143, 55, 0), rgb(250, 210, 66)) 1;
+  --container-width: 978px;
 }
 
 ::selection {

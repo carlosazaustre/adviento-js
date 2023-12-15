@@ -4,6 +4,7 @@ import Banner from '@/app/components/Banner'
 import Navbar from '@/app/components/Navbar'
 import Sponsors from './components/Sponsors';
 import Creator from '@/app/components/Creator'
+import Cell from '@/app/components/Cell'
 import styles from './page.module.css'
 
 type VideoItem = {
@@ -46,19 +47,10 @@ export default async function Home() {
 
       <main className={styles.container}>
         {videosId.map((videoId: string, index: number) => (
-          <div key={videoId} className={styles.cell}>
-              <iframe
-                className={styles.video}
-                src={`https://www.youtube.com/embed/${videoId}`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                ></iframe>
-          </div>
+          <Cell key={videoId} videoId={videoId} />
         ))}
         {Array.from({ length: 24 - videosId.length }, (_, i) => i + 1).map((day: number, index: number) => (
-          <div key={index + videosId.length + 1} className={styles.cell}>
-            <span className={styles.cellText}>{index + videosId.length + 1}</span>
-          </div>
+          <Cell key={index + videosId.length + 1} text={index + videosId.length + 1} />
         ))}
       </main>
 

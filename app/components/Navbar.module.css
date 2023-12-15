@@ -3,7 +3,7 @@
 }
 
 .navbar {
-    max-width: 1200px;
+    max-width: var(--container-width);
     display: flex;
     justify-content: flex-end;
     align-items: center;
